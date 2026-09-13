@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookworm Study Club — Library, Café & Prayer Space</title>
+  <meta name="description" content="A premium library and quiet self-study space with a café and prayer area. Comfortable seats, good coffee, and focused surroundings.">
+  <meta name="keywords" content="library, study space, quiet study, café, prayer space, reading, membership, Bookworm Study Club">
+  <meta property="og:title" content="Bookworm Study Club — Library, Café & Prayer Space">
+  <meta property="og:description" content="A premium library and quiet study environment designed for focused minds.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ─── LOADING OVERLAY ─── -->
+  <div class="loader" id="loader">
+    <div class="loader-brand">Bookworm</div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ─── NAVBAR ─── -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-main">BOOKWORM</span>
+        <span class="logo-sub">STUDY CLUB</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#library">Library</a>
+        <a href="#cafe">Café</a>
+        <a href="#prayer">Prayer Space</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#membership">Membership</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#membership" class="btn btn-nav">Join / Enquire</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80" alt="Library interior with tall bookshelves and warm lighting" loading="eager">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="hero-label">Library · Café · Prayer Space</p>
+        <h1>Your space to<br>read. focus. grow.</h1>
+        <p class="hero-sub">A premium library and quiet study environment designed for focused minds.</p>
+        <div class="hero-actions">
+          <a href="#library" class="btn btn-primary">Explore Library</a>
+          <a href="#membership" class="btn btn-ghost">View Membership</a>
+        </div>
+      </div>
+
+      <!-- floating info cards -->
+      <div class="container hero-cards">
+        <div class="hero-card">
+          <span class="hero-card-icon">📚</span>
+          <div>
+            <strong id="heroBooks">10,000+ Books</strong>
+            <p>A growing collection for curious minds</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <span class="hero-card-icon">🪑</span>
+          <div>
+            <strong id="heroSeats">120 Study Seats</strong>
+            <p>Comfortable spaces for focused study</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <span class="hero-card-icon">☕</span>
+          <div>
+            <strong>Café</strong>
+            <p>Coffee, tea & light refreshments</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <span class="hero-card-icon">🕌</span>
+          <div>
+            <strong>Prayer Space</strong>
+            <p>A peaceful space for prayer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── STATS ─── -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-header">
+          <p class="section-label">By the numbers</p>
+          <h2 class="section-title">A space built for focus</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number" id="statBooks">10,000+</span>
+            <span class="stat-label">Books</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="statSeats">120</span>
+            <span class="stat-label">Study Seats</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="statAvailable">34</span>
+            <span class="stat-label">Seats Available Today</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">7 Days</span>
+            <span class="stat-label">Open</span>
+          </div>
+        </div>
+
+        <!-- seat availability bar -->
+        <div class="seat-availability">
+          <div class="seat-header">
+            <h3>Study Seats — Today's Availability</h3>
+            <span class="seat-note">Availability shown for demonstration and can be updated by the club.</span>
+          </div>
+          <div class="seat-bar-wrap">
+            <div class="seat-bar">
+              <div class="seat-bar-fill" id="seatBarFill" style="width: 0%;"></div>
+            </div>
+            <div class="seat-legend">
+              <span><i class="dot available"></i> <span id="seatAvailableLegend">34</span> Available</span>
+              <span><i class="dot occupied"></i> <span id="seatOccupiedLegend">86</span> Occupied</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── LIBRARY ─── -->
+    <section class="section library-section" id="library">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">The Library</p>
+          <h2 class="section-title">A library built for focus.</h2>
+          <p class="section-sub">Find your corner, open your book, and settle into an environment designed for uninterrupted self-study and reading.</p>
+        </div>
+
+        <div class="library-grid">
+          <div class="library-image">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80" alt="Quiet library reading area with natural light" loading="lazy">
+          </div>
+          <div class="library-features">
+            <div class="feature-row">
+              <span class="feature-num">01</span>
+              <div>
+                <h4>Reading corners</h4>
+                <p>Soft seating, warm light and shelves within reach.</p>
+              </div>
+            </div>
+            <div class="feature-row">
+              <span class="feature-num">02</span>
+              <div>
+                <h4>Individual study desks</h4>
+                <p>Spacious desks with charging points for long sessions.</p>
+              </div>
+            </div>
+            <div class="feature-row">
+              <span class="feature-num">03</span>
+              <div>
+                <h4>Quiet environment</h4>
+                <p>A strict quiet policy so you can concentrate fully.</p>
+              </div>
+            </div>
+            <div class="feature-row">
+              <span class="feature-num">04</span>
+              <div>
+                <h4>Book collection</h4>
+                <p>Fiction, non-fiction, reference and poetry across subjects.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CAFÉ ─── -->
+    <section class="section cafe-section" id="cafe">
+      <div class="container">
+        <div class="cafe-layout">
+          <div class="cafe-content">
+            <p class="section-label">The Café</p>
+            <h2 class="section-title">Coffee, tea & light bites.</h2>
+            <p class="section-sub">A small café inside the club — freshly brewed coffee, loose-leaf teas and light snacks to keep you going.</p>
+
+            <div class="menu-list">
+              <div class="menu-item">
+                <span class="menu-name">Espresso</span>
+                <span class="menu-price">₹99</span>
+              </div>
+              <div class="menu-item">
+                <span class="menu-name">Cappuccino</span>
+                <span class="menu-price">₹149</span>
+              </div>
+              <div class="menu-item">
+                <span class="menu-name">Cold Coffee</span>
+                <span class="menu-price">₹159</span>
+              </div>
+              <div class="menu-item">
+                <span class="menu-name">Masala Tea</span>
+                <span class="menu-price">₹79</span>
+              </div>
+              <div class="menu-item">
+                <span class="menu-name">Fresh Pastry</span>
+                <span class="menu-price">₹129</span>
+              </div>
+              <div class="menu-item">
+                <span class="menu-name">Sandwich</span>
+                <span class="menu-price">₹179</span>
+              </div>
+            </div>
+            <p class="menu-note">Sample menu. Prices may change.</p>
+          </div>
+          <div class="cafe-image">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000&q=80" alt="Café counter with coffee and pastries" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRAYER SPACE ─── -->
+    <section class="section prayer-section" id="prayer">
+      <div class="container">
+        <div class="prayer-layout">
+          <div class="prayer-image">
+            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=1000&q=80" alt="Calm prayer space with soft light" loading="lazy">
+          </div>
+          <div class="prayer-content">
+            <p class="section-label">Prayer Space</p>
+            <h2 class="section-title">A space for peace.</h2>
+            <p class="section-sub">Bookworm provides a quiet, respectfully maintained area for prayer and reflection. It is open to all members and visitors during club hours.</p>
+            <p class="section-sub" style="margin-top: 16px;">Please keep the space clean and observe silence so everyone can use it comfortably.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── AMENITIES ─── -->
+    <section class="section amenities-section" id="amenities">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Amenities</p>
+          <h2 class="section-title">Everything you need.</h2>
+        </div>
+        <div class="amenities-grid">
+          <div class="amenity-item"><span>📖</span> Quiet study zone</div>
+          <div class="amenity-item"><span>🪑</span> Comfortable seating</div>
+          <div class="amenity-item"><span>📚</span> Reading area</div>
+          <div class="amenity-item"><span>🔌</span> Power & charging</div>
+          <div class="amenity-item"><span>☕</span> Café</div>
+          <div class="amenity-item"><span>🕌</span> Prayer space</div>
+          <div class="amenity-item"><span>📶</span> Wi-Fi</div>
+          <div class="amenity-item"><span>❄️</span> Air-conditioned</div>
+          <div class="amenity-item"><span>📕</span> Book collection</div>
+          <div class="amenity-item"><span>🔒</span> Secure environment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── MEMBERSHIP ─── -->
+    <section class="section membership-section" id="membership">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Membership</p>
+          <h2 class="section-title">Simple, honest pricing.</h2>
+          <p class="section-sub">Choose the plan that fits your routine. All plans include library access, study seats and the prayer space.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Daily Pass</h3>
+            <p class="price">₹149 <span>/ day</span></p>
+            <ul>
+              <li>Study seat access</li>
+              <li>Library access</li>
+              <li>Quiet study environment</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Get Day Pass</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Monthly</h3>
+            <p class="price">₹1,899 <span>/ month</span></p>
+            <ul>
+              <li>Study seat access</li>
+              <li>Library access</li>
+              <li>Reading area access</li>
+              <li>Member benefits</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Choose Monthly</a>
+          </div>
+
+          <div class="pricing-card popular">
+            <span class="popular-badge">Most Popular</span>
+            <h3>3 Months</h3>
+            <p class="price">₹4,999</p>
+            <ul>
+              <li>Study seat access</li>
+              <li>Library access</li>
+              <li>Reading area access</li>
+              <li>Member benefits</li>
+              <li>Priority seating</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose 3 Months</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>6 Months</h3>
+            <p class="price">₹8,999</p>
+            <ul>
+              <li>Study seat access</li>
+              <li>Library access</li>
+              <li>Reading area access</li>
+              <li>Member benefits</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Choose 6 Months</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Annual</h3>
+            <p class="price">₹15,999</p>
+            <ul>
+              <li>Study seat access</li>
+              <li>Library access</li>
+              <li>Reading area access</li>
+              <li>Member benefits</li>
+              <li>Priority seating</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark">Choose Annual</a>
+          </div>
+        </div>
+        <p class="pricing-note">Sample prices. Please contact us for current rates and availability.</p>
+      </div>
+    </section>
+
+    <!-- ─── GALLERY ─── -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Gallery</p>
+          <h2 class="section-title">A look inside.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item tall" data-src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80" alt="Library shelves" loading="lazy">
+          </div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&q=80" alt="Reading area" loading="lazy">
+          </div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Café counter" loading="lazy">
+          </div>
+          <div class="gallery-item wide" data-src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Books on shelves" loading="lazy">
+          </div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=600&q=80" alt="Prayer space" loading="lazy">
+          </div>
+          <div class="gallery-item tall" data-src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80" alt="Study desks" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-layout">
+          <div class="about-text">
+            <p class="section-label">About</p>
+            <h2 class="section-title">A calm place to read, focus and take a break.</h2>
+            <p>Bookworm Study Club is designed for people who want a comfortable place to read, study independently, and step away when they need to. Whether you're preparing for an exam, working on a project, or simply enjoying a book, the club offers a quiet, well-maintained environment.</p>
+            <p style="margin-top: 20px;">We have a library, a small café, a prayer space, and plenty of seating. No classes, no noise — just a good place to get things done.</p>
+            <div class="about-tags">
+              <span>Library</span>
+              <span>Café</span>
+              <span>Prayer Space</span>
+              <span>Quiet Study</span>
+              <span>Community</span>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1000&q=80" alt="Person studying at a desk in a library" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">What members say</p>
+          <h2 class="section-title">From our regulars.</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Finally found a place where I can actually concentrate."</p>
+            <p class="testimonial-author">Aarav K. <span>Student</span></p>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Quiet, comfortable and perfect for long study sessions."</p>
+            <p class="testimonial-author">Mehak R. <span>Member</span></p>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Love the library atmosphere and café."</p>
+            <p class="testimonial-author">Danish A. <span>Member</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">FAQ</p>
+          <h2 class="section-title">Common questions.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What is Bookworm Study Club?</button>
+            <div class="faq-answer"><p>A premium library and quiet self-study space with a café and prayer area. It's designed for independent study and reading.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Do I need a membership?</button>
+            <div class="faq-answer"><p>You can visit with a daily pass, or choose a monthly, 3-month, 6-month or annual membership. No membership is required for the café.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can I visit for a day?</button>
+            <div class="faq-answer"><p>Yes. A daily pass gives you access to the library and study seats for one day.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What are the membership prices?</button>
+            <div class="faq-answer"><p>Daily pass starts at ₹149. Monthly is ₹1,899, 3 months ₹4,999, 6 months ₹8,999 and annual ₹15,999. These are sample prices — please contact us for current rates.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Is the café open to visitors?</button>
+            <div class="faq-answer"><p>Yes, the café is open to everyone during club hours. You don't need a membership to grab a coffee.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Is there a prayer space?</button>
+            <div class="faq-answer"><p>Yes, we have a quiet, respectfully maintained prayer space available for all members and visitors.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What are the opening hours?</button>
+            <div class="faq-answer"><p>We are open Monday to Sunday, 6:00 AM to 10:00 PM.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can I reserve a study seat?</button>
+            <div class="faq-answer"><p>Seats are available on a first-come, first-served basis. For long-term memberships, you can ask about priority seating.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">Visit us or get in touch.</h2>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h3>Bookworm Study Club</h3>
+            <p class="contact-address">123 Reading Lane,<br>Quiet District,<br>Baramulla, Jammu & Kashmir</p>
+            <p class="contact-phone"><a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p class="contact-email"><a href="mailto:ruhaldar321@gmail.com">ruhaldar321@gmail.com</a></p>
+            <p class="contact-hours">Open Monday – Sunday<br>6:00 AM – 10:00 PM</p>
+            <div class="contact-actions">
+              <a href="https://maps.google.com/?q=Baramulla+Jammu+and+Kashmir" target="_blank" rel="noopener" class="btn btn-outline-dark" id="directionsBtn">Get Directions</a>
+              <a href="tel:+919876543210" class="btn btn-outline-dark">Call Now</a>
+              <a href="mailto:ruhaldar321@gmail.com" class="btn btn-primary">Email Us</a>
+            </div>
+          </div>
+          <div class="contact-map">
+            <div class="map-placeholder">
+              <span>📍 Map placeholder</span>
+              <p>123 Reading Lane, Baramulla</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">BOOKWORM <span>STUDY CLUB</span></p>
+          <p class="footer-tag">Read. Focus. Grow.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#library">Library</a>
+          <a href="#cafe">Café</a>
+          <a href="#prayer">Prayer Space</a>
+          <a href="#membership">Membership</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <a href="mailto:ruhaldar321@gmail.com">ruhaldar321@gmail.com</a>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+        </div>
+        <div class="footer-social">
+          <h4>Follow</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Bookworm Study Club. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── QUERY FLOATING BUTTON ─── -->
+  <button class="query-fab" id="queryFab" aria-label="Open query form">
+    <span>💬</span>
+    <span class="query-fab-text">Query</span>
+  </button>
+
+  <!-- ─── QUERY MODAL ─── -->
+  <div class="query-modal" id="queryModal" role="dialog" aria-modal="true" aria-labelledby="queryTitle">
+    <div class="query-modal-content">
+      <button class="query-close" id="queryClose" aria-label="Close query form">✕</button>
+      <h2 id="queryTitle">How can we help?</h2>
+      <form id="queryForm" novalidate>
+        <div class="form-group">
+          <label for="queryName">Full Name</label>
+          <input type="text" id="queryName" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="queryEmail">Email Address</label>
+          <input type="email" id="queryEmail" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="queryMessage">Message</label>
+          <textarea id="queryMessage" name="message" rows="4" required maxlength="500" placeholder="Write your question or message..."></textarea>
+          <span class="char-count" id="charCount">0 / 500</span>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="querySubmit">Send Query</button>
+          <button type="button" class="btn btn-outline-dark" id="queryCancel">Close</button>
+        </div>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ─── GALLERY LIGHTBOX ─── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <img src="" alt="" id="lightboxImage">
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+  </div>
+
+  <!-- ─── BACK TO TOP ─── -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
